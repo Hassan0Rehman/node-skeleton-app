@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<title>Dummy title home</title>
+
+<meta charset="UTF-8">
+<meta name="description" content="Cricket Coverage with Blazing fast Cricket Scores, Matches Schedules, Live Streaming, Scorecards.Latest News of all international matches & ICC Cricket Rankings for Players and Teams on Cricingif">
+<meta name="viewport" content="content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'">
+
+<!-- Facebook og tags -->
+<meta property="og:url" content="https://www.cricingif.com">
+<meta property="og:description" content="Cricket Coverage with Blazing fast Cricket Scores, Matches Schedules, Live Streaming, Scorecards.Latest News of all international matches & ICC Cricket Rankings for Players and Teams on Cricingif">
+<meta property="og:title" content="<%= title %>">
+<meta property="og:type" content="Website" >
+<meta property="og:image" content="https://d7d7wuk1a7yus.cloudfront.net/static-assets/logo.png">
+
+<!-- Twitter card tags -->
+<meta name="twitter:image" content="https://d7d7wuk1a7yus.cloudfront.net/static-assets/logo.png">
+<meta name="twitter:card" content="app">
+<meta name="twitter:site" content="@_cricingif" >
+<meta name="twitter:description" content="Cricket Coverage with Blazing fast Cricket Scores, Matches Schedules, Live Streaming, Scorecards.Latest News of all international matches & ICC Cricket Rankings for Players and Teams on Cricingif">
+<meta property="twitter:title" content="<%= title %>">
+
+<link rel="icon" href="/images/favicon.ico?" type="image/x-icon">
+<link rel="canonical" href="https://www.cricingif.com">
+
+<!-- <link rel="stylesheet" href="/public/main.css"> -->
+<!-- <script src="/public/main.js"></script> -->
+
+<div class="container-fluid no-padding">
+    <div class="wrapper-outer">
+    <div class="wrapper-inner">
+        <div id="articles-fragment-async" class="col-md-9 col-sm-8 col-xs-12 left-outer-container" style="padding-left: 10px;">
+        <!-- <await(articlesTemplate from data.articlesDataProvider) name="articles" timeout=0 client-reorder="true">
+            
+            $ var _articles = articlesTemplate.articles;
+            <div class="row hide-xs-screen" style="margin: 0; width: 100%;">
+                <h2 class="top-article-header">
+                    <a href="/series/${'_articles[0][0].matchId'}/${'_articles[0][0].matchTitle'}">
+                        <p class="inline" style={color: '#a5c715;'}>${_articles[0][0].matchTitle}</p>
+                    </a>
+                    <p class="inline pull-right" style="margin: 0px;">
+                        $ var publishDate = new Date(_articles[0][0].publishDate);
+                        $ var date = new Date();
+                        $ var hours = Math.abs(date - publishDate) / 36e5;
+                        <if(hours <= 1)>
+                            ${ "just now" }
+                        </if>
+                        <else-if(hours > 1 && hours <= 23)>
+                            ${ Math.floor(hours) + "h" }
+                        </else-if>
+                        <else>
+                            ${ "" }
+                        </else>
+                    </p>
+                </h2>
+                <div class="col-md-8 col-sm-8 col-xs-12 no-padding-left blogs-hm-section-one no-padding-right">
+                    <div class="wrapper" alt=_articles[0][0].matchTitle 
+                        style={background: 'url("/images/placeholder.png")', backgroundSize: 'cover', backgroundPosition: 'center !important'}>
+                        
+                        <a href="/news/${'_articles[0][0].id'}/${'_articles[0][0].link.split("?ogt")[0]'}">
+                            <div class="sixteen-by-nine" alt=_articles[0][0].seriesTitle
+                                style={background: "url(${'_articles[0][0].imageUrl'}/1.78/${'_articles[0][0].id'}.jpg), url(/images/placeholder.png);"}>
+                            </div>
+                        </a>
+                        <div class="content" style="top: auto;">
+                            <div class="blog-pic-overlay blog-pic-overlay-hm" 
+                                style="position:relative;vertical-align:bottom;">
+                                <div style="position:absolute;bottom:10px; width:100%">
+                                    <div class="blog-overlay-title blog-overlay-title-hm" style="height: auto;">
+                                        <h3 class="inline">
+                                            <a class="article-title-link" 
+                                                href="/news/${'_articles[0][0].id'}/${'_articles[0][0].link'}">
+                                                ${_articles[0][0].seriesTitle}
+                                            </a>
+                                        </h3>
+                                    </div>
+                                    <div class="bl-overlay-match-details" 
+                                        id="article-headliner-${'_articles[0][0].matchId'}"
+                                        series-attr-id=_articles[0][0].matchId
+                                        style={marginLeft: "20px;"}>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12 blogs-hm-section-two no-padding-all">
+                    <div for(i from 1 to 2) class="col-md-12 col-sm-12 col-xs-6 bl-sm-two no-margin-top">
+                        <div class="wrapper" style={background: "url(/images/placeholder.png)",
+                            backgroundSize: "cover !important",
+                            backgroundPosition: "center !important"}
+                            alt=_articles[0][i].seriesTitle>
+                            
+                            <a href="/news/${'_articles[0][i].id'}/${'_articles[0][i].link.split("?ogt")[0]'}">
+                                <div class="sixteen-by-nine" 
+                                    alt=_articles[0][i].seriesTitle
+                                    style={background: "url(${_articles[0][i].imageUrl}/1.78/${_articles[0][i].id}.jpg), url(/images/placeholder.png);"}>
+                                </div>
+                            </a>
+                            <div class="content" style={top: "auto"}>
+                                <div class="blog-pic-overlay blog-pic-overlay-hm-sm" 
+                                    style={position: "relative", verticalAlign: "bottom"}>
+                                    <div style={position: "absolute", bottom: "10px", width: "100%"}>
+                                        <div class="blog-overlay-title blog-overlay-title-hm-sm"
+                                            style={height: "auto;"}>
+                                            <p class="inline">
+                                                <a class="article-title-link" href="/news/${'_articles[0][i].id'}/${'_articles[0][i].link.split("?ogt")[0]'}">
+                                                    ${_articles[0][i].seriesTitle}
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+
+            <include($articlesTemplate.articlesTemplateJs, {articlesTemplate: articlesTemplate}) />
+        </await> -->
+        </div>
+        <div class="col-md-3 col-sm-4 hide-xs-screen no-padding right-outer-container" style="padding-left: 0px; padding-right: 10px;">
+        <div class="scorecard-menu right-column-box hide-xs-screen">
+            <div class="tab-content" id="right-widget-scroller">
+            <div id="match-timings" class="tab-pane fade in active">
+                <div id="schedule-fragment-async"></div>
+                <!-- <await(matchWidgetTemplate from data.scheduleDataProvider) arg={} name="schedule" timeout=0 client-reorder="true">
+                    ${JSON.stringify(matchWidgetTemplate)}
+                    <include('./schedule-widget.marko')/>
+                </await> -->
+            </div>
+            </div>
+        </div>
+
+        <div align="center" class="scorecard-ad-300x250 no-display-add"></div>
+        
+        <div class="right-column-box rankings-row">
+            <div id="team-rankings"></div>
+        </div>
+
+        <div align="center" class="scorecard-ad-300x250 no-display-add"></div>
+
+        <div class="right-column-box rankings-row">
+            <div id="player-rankings"></div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>

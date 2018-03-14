@@ -1,0 +1,146 @@
+<div class="right-widget" id="schedule-fragment-rendered">
+    <div class="today-match-heading bg-color-green hide-mobile-screen" id="top-scrolled-category">
+      <p>Recently Finished</p>
+    </div>
+    $ var scheduleWidget = data;
+    ${ JSON.stringify(data) }
+    <!-- <div for(category from 0 to scheduleWidget.length - 1)>
+      <div class="recently-finished">
+        <div class="today-match-heading bg-color-green active-title hide-mobile-screen">
+          <p>${ scheduleWidget[category].title }</p>
+        </div>
+        ${ JSON.stringify(scheduleWidget[category]) }
+        <div for(match from 0 to scheduleWidget[category].matches.length - 1)>
+          $ var matchTitle = scheduleWidget[category].matches[match].team1Nick.toLowerCase() + '-vs-' + scheduleWidget[category].matches[match].team2Nick.toLowerCase() + '-' + scheduleWidget[category].matches[match].matchInfo.split(' ').join('-').toLowerCase() + '-' + scheduleWidget[category].matches[match].matchDate.split(' ')[0].split('/')[2];
+          ${ JSON.stringify(scheduleWidget[category].matches[match]) }
+        </div>
+      </div>
+    </div> -->
+    <!-- <% scheduleWidget.forEach((category, index) => { %>
+      <div class="recently-finished">
+        <div class="today-match-heading bg-color-green active-title hide-mobile-screen">
+          <p><%= category.title %></p>
+        </div>
+        <% category.matches.forEach((match, i) => { %>
+          <%
+            var matchTitle = match.team1Nick.toLowerCase() + '-vs-' + match.team2Nick.toLowerCase() + '-' + match.matchInfo.split(' ').join('-').toLowerCase() + '-' + match.matchDate.split(' ')[0].split('/')[2];
+          %>
+          <a class="anchorcolor" href="/match/<%= match.matchId %>/<%= matchTitle.split(' ').join('-') %>">
+            <div class="match-container">
+              <div class="match-score-inner match-score-inner-edit">
+                <div class="mc-top-container mc-top-container-edit">
+                  <div class="match-headline">
+                    <% if (category.val === 1) { %>
+                      <p class="truncate-text"><%= match.matchInfo + ' ' + match.matchLocation %></p>
+                    <% } else if (category.val === 0) { %>
+                      <p class="truncate-text"><%= match.closingComment %></p>
+                    <% } else { %>
+                      <p class="truncate-text"><%= match.matchInfo + ' ' + match.matchLocation %></p>
+                    <% } %>
+                  </div>
+                  <div class="<%= category.val === 1 ? 'live-tag' : '' %>">
+                    <% if (category.val === 1) { %>
+                        <p>Live</p>
+                    <% } else if(category.val === 0) { %>
+                        <p class="completed-text">Completed</p>
+                    <% } %>
+                  </div>
+                </div>
+                <div class="match-score-container match-score-container-edit">
+                  <div class="team-one-container text-align-left team-one-container-edit">
+                    <div class="flag-and-name">
+                      <div style="display: flex; align-items: center;">
+                        <div class="sprite-<%= match.team1Title.replace(/\s+/g, '').toLowerCase() %>"></div>
+                        <span title="<%= match.team1Title %>"><%= match.team1Nick %></span>
+                      </div>
+                      <% if (category.val === 1 || category.val === 0) { %>
+                        <% if (match.team1Score.indexOf('&') >= 0) {%>
+                          <div class="score-and-overs">
+                              <%= match.team1Score %>
+                          </div>
+                        <% } else { %>
+                          <% if (match.team1Inns2Score !== "") { %>
+                            <div class="score-and-overs-container">
+                              <div class="score-and-overs">
+                                <%= match.team1Inns2Score  + ' ' +  match.team2Inns2Overs  %>
+                              </div>
+                              <% if (category.val === 1 && match.BattingTeam === 1) { %> 
+                                  <div class="currently-playing-arrow"></div>
+                              <% } %>  
+                            </div>
+                          <% } %>
+                          <% if (match.team1Inns1Score !== "") { %>
+                            <div class="score-and-overs-container">
+                              <div class="score-and-overs">
+                                <%= match.team1Inns1Score + ' ' +  match.team1Inns1Overs  %>
+                              </div>
+                              <% if (category.val === 1 && match.BattingTeam === 1 && match.team1Inns2Score === "") { %> 
+                                <div class="currently-playing-arrow"></div>
+                              <% } %>  
+                            </div>
+                          <% } %>
+                        <% } %>
+                      <% } %>
+                    </div>
+                  </div>
+                  <div class="versus-container-parent">
+                    <div class="vs-text versus-container versus-container vs-left">
+                      <span>vs</span>
+                    </div>
+                  </div>
+                  <div class="team-two-container text-align-right team-two-container-edit">
+                    <div class="flag-and-name">
+                      <div style="display: flex; align-items: center; justify-content: flex-end;">
+                        <span class="margin-right-5" title="<%= match.team2Title %>"><%= match.team2Nick %></span>
+                        <div class="sprite-<%= match.team2Title.replace(/\s+/g, '').toLowerCase() %>"></div>
+                      </div>
+                      <% if (category.val === 1 || category.val === 0) { %>
+                        <% if (match.team2Score.indexOf('&') >= 0) {%>
+                          <div class="score-and-overs">
+                              <%= match.team2Score %>
+                          </div>
+                        <% } else { %>
+                          <% if (match.team2Inns2Score !== "") { %>
+                            <div class="score-and-overs-container">
+                              <div class="score-and-overs">
+                                <%= match.team2Inns2Score + ' ' + match.team2Inns2Overs  %>
+                              </div>
+                              <% if (category.val === 1 && match.BattingTeam === 2) { %> 
+                                <div class="currently-playing-arrow"></div>
+                              <% } %>
+                            </div>
+                          <% } %>
+                          <% if (match.team2Inns1Score !== "") { %>
+                            <div class="score-and-overs-container">
+                              <div class="score-and-overs">
+                                <%= match.team2Inns1Score + ' ' + match.team2Inns1Overs  %>
+                              </div>
+                              <% if (category.val === 1 && match.BattingTeam === 2 && match.team2Inns2Score === "") { %> 
+                                <div class="currently-playing-arrow"></div>
+                              <% } %>  
+                            </div>
+                          <% } %>
+                        <% } %>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+                <% if (category.val === 2) { %>
+                    <div class="time-remaining-in-match">
+                      <%= match.matchDate.split(" ")[0] + ' ' + match.time %>
+                    </div>
+                <% } %>
+              </div>
+            </div>
+          </a>
+        <% }); %>
+        <% if (category.matches.length <= 0) { %>
+          <div align="center" class="empty-live-match">
+            <span class="icon-clock"></span>
+            <p>No Live Scores available</p>
+          </div>
+        <% } %>
+      </div> -->
+      <div class="schedules-spacing hide-mobile-screen"></div>
+</div>
+<!-- <script>BigPipe.onArrive({append: "schedule-fragment-rendered", appendTo: "schedule-fragment-async"})</script> -->
